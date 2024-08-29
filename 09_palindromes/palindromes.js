@@ -1,13 +1,15 @@
-const palindromes = function (prompt) {
-    let newPrompt = prompt.toLowerCase().replace(/[!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]/g, '');
-    const len = newPrompt.length;
+const palindromes = function (string) {
+    const alphanumerical = "abcdefghijklmnopqrstuvwxyz0123456789";
 
-    for (let i = 0; i < len / 2; i++) {
-        if (newPrompt[i] !== newPrompt[len - 1 - i]) {
-            return false;
-        }
-    }
-    return true;
+    const newString = string
+        .toLowerCase()
+        .split('')
+        .filter((character => alphanumerical.includes(character)))
+        .join('');
+
+    const reversedString = newString.split('').reverse().join('');
+
+    return reversedString === newString;
 };
 
 // Do not edit below this line
